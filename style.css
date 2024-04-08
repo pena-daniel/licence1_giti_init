@@ -1,20 +1,139 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
 
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
     font-family: "Montserrat", sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: rgb(14, 2, 40);
+    box-sizing: border-box;
+    background-color: black;
+
     color: white;
-    font-size: 2rem;
-    text-transform: uppercase;
+}
+
+
+.center-body{
+    padding-inline: 2rem;
+    @media screen and (min-width: 1200px){
+        padding-left: calc(50% - 600px);
+        padding-right: calc(50% - 600px);
+    }
+}
+
+form{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    max-width: 480px;
+    margin-inline: auto;
+    margin-top: 2rem;
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: .75rem;
+
+        label{
+            color: black;
+            margin-bottom: .5rem;
+        }
+        textarea,
+        input{
+            padding: .45rem;
+            font-family: "Montserrat";
+            border: solid 1px rgb(228, 227, 227);
+            border-radius: 5px;
+            font-size: .85rem;
+            font-weight: 400;
+            resize: none;
+        }
+    }
+
+    .btn{
+        color: white;
+        background-color: black;
+        padding: .75rem 1rem;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+    }
+}
+
+.card-wrapper{
+    & > h1{
+        margin-block: 1rem;
+    }
+}
+.cards-grid{
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    @media screen and (max-width: 980px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 780px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 580px){
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.card{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    position: relative;
+
+    .card-actions{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .35rem;
+        right: 10px;
+        top: 10px;
+
+        .action{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &.delete{
+                background-color: red;
+            }
+            &.update{
+                background-color: rgb(45, 144, 250);
+            }
+        }
+    }
+
+    h1{
+        color: black;
+        margin-bottom: .75rem;
+    }
+    span{
+        color: black;
+    }
+    p{
+        color: black;
+        font-size: .85rem;
+        font-weight: 400;
+        line-height: 25px;
+    }
+}
+
+.hide{
+    display: none;
 }
